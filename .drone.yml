@@ -7,3 +7,11 @@ steps:
   image: debian:stable-slim
   commands:
   - '/drone/src/run.sh'
+  volumes:
+  - name: repo
+    path: /repo
+
+volumes:
+- name: repo
+  host:
+    path: /tmp/repo
