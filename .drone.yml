@@ -1,0 +1,9 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: Run run.sh
+  image: debian:stable-slim
+  commands:
+  - '/drone/src/run.sh'
