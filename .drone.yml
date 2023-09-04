@@ -14,4 +14,4 @@ steps:
 volumes:
 - name: repo
   host:
-    path: /tmp/repo
+    path: /mnt/user/big-stuff/files/repos/fedora/x86_64
