@@ -1,0 +1,12 @@
+#!/bin/bash
+# Update steam - have to do all this stuff because the filename is always the same.
+# There's probably a better way to do this.
+curl -LO https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb
+if ! cmp --silent "./steam.deb" "/repo/steam.deb"; then
+    curl -L https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb -o /repo/steam.deb
+fi
+
+# Update ArmCord
+cd /repo
+curl -LO $(curl -s https://api.github.com/repos/ArmCord/ArmCord/releases/latest | grep "browser_download_url.*ArmCord_.*_amd64.deb" | cut -d : -f 2,3 | tr -d \") -C -
+cd /drone/src

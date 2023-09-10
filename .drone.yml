@@ -3,15 +3,25 @@ type: docker
 name: default
 
 steps:
-- name: Run run.sh
+- name: Update fedora repo
   image: debian:stable-slim
   commands:
-  - '/drone/src/run.sh'
+  - '/drone/src/fedora.sh'
   volumes:
-  - name: repo
+  - name: fedora-repo
+    path: /repo
+- name: Update debian repo
+  image: debian:stable-slim
+  commands:
+  - '/drone/src/debian.sh'
+  volumes:
+  - name: debian-repo
     path: /repo
 
 volumes:
-- name: repo
+- name: fedora-repo
   host:
     path: /mnt/user/big-stuff/files/repos/fedora/x86_64
+- name: debian-repo
+  host:
+    path: /mnt/user/big-stuff/files/repos/debian/amd64
