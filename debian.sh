@@ -2,6 +2,7 @@
 set -e
 apt-get update
 apt-get install -y curl
+apt-get install -y dpkg-dev
 
 # Update steam - have to do all this stuff because the filename is always the same.
 # There's probably a better way to do this.
@@ -15,5 +16,9 @@ cd /repo
 curl -LO $(curl -s https://api.github.com/repos/ArmCord/ArmCord/releases/latest | grep "browser_download_url.*ArmCord_.*_amd64.deb" | cut -d : -f 2,3 | tr -d \") -C -
 cd /drone/src
 
+# Do repo stuff
 dpkg-scanpackages --arch amd64 /repo > /repo/Packages
 cat /repo/Packages | gzip -9 > /repo/Packages.gz
+cd /repo
+mv /drone/src/generate-Release.sh .
+./generate-Release.sh > Release
