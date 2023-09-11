@@ -15,13 +15,13 @@ steps:
   commands:
   - '/drone/src/debian.sh'
   volumes:
-  - name: debian-repo
+  - name: debian-bookworm-repo
     path: /repo
 
 volumes:
 - name: fedora-repo
   host:
     path: /mnt/user/big-stuff/files/repos/fedora/x86_64
-- name: debian-repo
+- name: debian-bookworm-repo
   host:
-    path: /mnt/user/big-stuff/files/repos/debian/amd64
+    path: /mnt/user/big-stuff/files/repos/debian/bookworm/amd64
