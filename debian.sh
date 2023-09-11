@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 apt-get update
-apt-get install curl
+apt-get install -y curl
 
 # Update steam - have to do all this stuff because the filename is always the same.
 # There's probably a better way to do this.
