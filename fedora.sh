@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 apt-get update
 apt-get install -y curl
 apt-get install -y createrepo-c
