@@ -6,7 +6,7 @@ apt-get install -y dpkg-dev
 
 # Update steam - have to do all this stuff because the filename is always the same.
 # There's probably a better way to do this.
-# Update: This doesn't actually work for some reason?
+# Update: This is pretty much just a deb file to install a repo, so it can't be part of my repo
 #curl -LO https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb
 #if ! cmp --silent "./steam.deb" "/repo/steam.deb"; then
 #    curl -L https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb -o /repo/steam.deb
@@ -24,8 +24,8 @@ cd /drone/src
 #cd /drone/src
 
 # Do repo stuff
-dpkg-scanpackages --arch amd64 /repo > /repo/Packages
-cat /repo/Packages | gzip -9 > /repo/Packages.gz
 cd /repo
+dpkg-scanpackages --arch amd64 . > ./Packages
+cat ./Packages | gzip -9 > ./Packages.gz
 mv /drone/src/generate-Release.sh .
 ./generate-Release.sh > Release
