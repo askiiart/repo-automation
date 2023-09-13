@@ -18,10 +18,9 @@ curl -LO $(curl -s https://api.github.com/repos/ArmCord/ArmCord/releases/latest 
 cd /drone/src
 
 # Update th-ch/youtube-music
-# curl throws errors, will figure it out later
-#cd /repo
-#curl -LO $(curl -s https://api.github.com/repos/th-ch/youtube-music/releases/latest | grep "browser_download_url.*youtube-music_.*_amd64.deb" | cut -d : -f 2,3 | tr -d \") -C -
-#cd /drone/src
+cd /repo
+curl -LO $(curl -s https://api.github.com/repos/th-ch/youtube-music/releases/latest | grep "browser_download_url.*youtube-music_.*_amd64.deb" | cut -d : -f 2,3 | tr -d \") -C -
+cd /drone/src
 
 # Do repo stuff
 cd /repo
