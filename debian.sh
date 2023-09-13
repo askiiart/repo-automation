@@ -24,7 +24,7 @@ cd /drone/src
 
 # Do repo stuff
 cd /repo
-dpkg-scanpackages --arch amd64 . > ./Packages
-cat ./Packages | gzip -9 > ./Packages.gz
+dpkg-scanpackages --arch amd64 dists/bookworm/stable/binary-amd64/ > dists/bookworm/stable/binary-amd64/Packages
+cat dists/bookworm/stable/binary-amd64/Packages | gzip -9 > dists/bookworm/stable/binary-amd64/Packages.gz
 mv /drone/src/generate-Release.sh .
-./generate-Release.sh > Release
+./dists/bookworm/stable/binary-amd64/generate-Release.sh > Release

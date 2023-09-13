@@ -24,4 +24,4 @@ volumes:
     path: /mnt/user/big-stuff/files/repos/fedora/x86_64
 - name: bookworm-repo
   host:
-    path: /mnt/user/big-stuff/files/repos/debian/dists/bookworm/stable/binary-amd64/
+    path: /mnt/user/big-stuff/files/repos/debian
