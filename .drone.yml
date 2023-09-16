@@ -13,7 +13,7 @@ steps:
 - name: Update debian repo
   image: debian:stable-slim
   commands:
-  - '/drone/src/debian.sh'
+  - '/drone/src/debian-bookworm-x64.sh'
   volumes:
   - name: bookworm-repo
     path: /repo

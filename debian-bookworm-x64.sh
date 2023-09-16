@@ -13,18 +13,18 @@ apt-get install -y dpkg-dev
 #fi
 
 # Update ArmCord
-cd /repo
+cd /repo/dists/bookworm/stable/binary-amd64/
 curl -LO $(curl -s https://api.github.com/repos/ArmCord/ArmCord/releases/latest | grep "browser_download_url.*ArmCord_.*_amd64.deb" | cut -d : -f 2,3 | tr -d \") -C -
 cd /drone/src
 
 # Update Discord
 # Has to be manually updated for each version
-cd /repo
+cd /repo/dists/bookworm/stable/binary-amd64/
 curl -LO https://dl.discordapp.net/apps/linux/0.0.29/discord-0.0.29.deb -C -
 cd /drone/src
 
 # Update th-ch/youtube-music
-cd /repo
+cd /repo/dists/bookworm/stable/binary-amd64/
 curl -LO $(curl -s https://api.github.com/repos/th-ch/youtube-music/releases/latest | grep "browser_download_url.*youtube-music_.*_amd64.deb" | cut -d : -f 2,3 | tr -d \") -C -
 cd /drone/src
 
